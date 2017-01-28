@@ -20,7 +20,7 @@
     $connection = new PDO('mysql:host='.$db_array["host"].';dbname='.$db_array["dbname"],
         ''.$db_array["username"], $db_array["password"]);
 
-    //building the SQL query to get the temas from the database
+    //building the SQL query to get the teams from the database
     $sql = "SELECT * FROM teams ORDER BY city ;";
 
     //execute the query and prepare the results
