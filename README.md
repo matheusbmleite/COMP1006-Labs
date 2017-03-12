@@ -10,7 +10,11 @@ for the Introduction to Web Programming class (COMP1006).
 
 - Lab 2
 	* Create some php files to show, edit and delete information from a database.
-	* url to the deployed project: [Lab 2](http://gc200350070.computerstudi.es/webProgramming/lab2/show-clubs.php). 
+	* url to the deployed project: [Lab 2](http://gc200350070.computerstudi.es/webProgramming/lab2/show-clubs.php).
+- Lab 3
+	* Modify the Assignment 1 to handle errors, try catch blocks must be added where needed, and error mail
+	must be sent any time an exception is caught, a 404 page must be shown any time a non-existent url is called.
+	* url to the doployed project: [Lab 3](http://gc200350070.computerstudi.es/webProgramming/lab3/add-customer.php).
 
 #Assignments
 - Assignment 1
