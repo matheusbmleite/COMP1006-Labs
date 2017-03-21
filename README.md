@@ -3,7 +3,7 @@ This repository contains all labs and assignments made throughout the course of 
 for the Introduction to Web Programming class (COMP1006).
 
 
-#Labs
+# Labs
 - Lab 1
 	* Create a simple php file to get information from a database and display as a table.
 	* url to the deployed project: [Lab 1](http://gc200350070.computerstudi.es/webProgramming/lab1/lab1.php). 
@@ -18,11 +18,14 @@ for the Introduction to Web Programming class (COMP1006).
 	    * A 404 page must be shown any time a non-existent url is called.
 	* url to the doployed project: [Lab 3](http://gc200350070.computerstudi.es/webProgramming/lab3/add-customer.php).
 
-#Assignments
+# Assignments
 - Assignment 1
     * A simple application where the user is able to:
         * Register a customer.
         * Reserve a facility.
         * Display all the reservations.
     * url to the deployed project: [Assignment 1](http://gc200350070.computerstudi.es/webProgramming/ass1/add-customer.php).
-    
+- Assignment 2
+    * A content management site
+        * A content management site is a website builder that allows the users to create and manage their own website.
+    * url to the deployed project: [Assignment 2](http://gc200350070.computerstudi.es/webProgramming/ass2/index.php).
