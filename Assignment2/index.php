@@ -1,5 +1,7 @@
 <?php
+    //Setting the pageTitle variable for the heading
     $pageTitle = 'Website builder | COMP1006';
+    //requiring the heading
     require_once('header.php');
 ?>
 
@@ -12,5 +14,6 @@
 </main>
 
 <?php
+    //requiring the footer
     require_once('footer.php');
 ?>

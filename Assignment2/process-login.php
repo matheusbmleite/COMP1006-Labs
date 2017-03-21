@@ -1,31 +1,36 @@
-<?php ob_start();
+<?php
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+    //Getting the values given by the user
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-require_once('db.php');
+    //requiring the database connection
+    require_once('db.php');
 
-$sql = "SELECT adminId, password FROM admins WHERE username = :username;";
+    //building the sql query
+    $sql = "SELECT adminId, password FROM admins WHERE username = :username;";
 
-$cmd = $connection->prepare($sql);
-$cmd->bindParam(':username', $username, PDO::PARAM_STR, 50);
-$cmd->execute();
+    //preparing the connection, binding the parameters and execuing the query
+    $cmd = $connection->prepare($sql);
+    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 50);
+    $cmd->execute();
 
-$admin = $cmd->fetch();
+    //getting the query results
+    $admin = $cmd->fetch();
+    //closing the database connection
+    $connection = null;
 
-$connection = null;
+    //checking if the credentials are valid and starting the session
+    if(password_verify($password, $admin['password'])) {
 
-if(password_verify($password, $admin['password'])) {
+        session_start(); //access to the existing session
+        $_SESSION['adminId'] = $admin['adminId']; //store the user's id in a session variable
+        $_SESSION['username'] = $username;
+        header('location:admins.php'); //redirecting the user
 
-    session_start(); //access to the existing session
-    $_SESSION['adminId'] = $admin['adminId']; //store the user's id in a session variable
-    $_SESSION['username'] = $username;
-    header('location:admins.php'); //redirecting the user
+    } else {
+        header('location:login.php?error=true');
+        exit();
+    }
 
-
-} else {
-    header('location:login.php?error=true');
-    exit();
-}
-
-ob_flush(); ?>
+?>

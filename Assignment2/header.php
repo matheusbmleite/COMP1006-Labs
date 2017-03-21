@@ -13,8 +13,6 @@
 <nav class="navbar navbar-default">
     <ul class="nav navbar-nav">
         <li><a href="index.php" class="navbar-brand">Assignment 2</a></li>
-<!--        <li><a href="albums.php">Albums</a></li>-->
-
         <?php
         // check if user is logged in
         session_start();

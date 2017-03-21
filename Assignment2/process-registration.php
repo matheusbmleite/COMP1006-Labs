@@ -1,5 +1,5 @@
 <?php
-
+    //getting the values given by the user
     $username = $_POST['username'];
     $password = $_POST['password'];
     $confirm = $_POST['confirm'];
@@ -23,8 +23,13 @@
         $ok = false;
     }
 
-    require_once('db.php'); //requiring the connection to the database
+    //requiring the connection to the database
+    require_once('db.php');
+
+    //Creating the sql query
     $sql = 'SELECT * FROM admins WHERE username = :username;';
+
+    //preparing the connection, binding the parameters and executing the query
     $cmd = $connection->prepare($sql);
     $cmd->bindParam(':username', $username, PDO::PARAM_STR, 50);
     $cmd->execute();
@@ -35,7 +40,9 @@
         $ok = false;
     }
 
+    //If the user submitted the data without error
     if($ok) {
+        //Checking whether to update or create a new admin
         if(!empty($adminId)) {
             $sql = 'UPDATE admins SET username = :username, password = :password WHERE adminId = :adminId;';
         } else {
@@ -46,15 +53,20 @@
         //hashing the password
         $password = password_hash($password, PASSWORD_DEFAULT);
 
+        //preparing the connection, binding the parameters and executing the query
         $cmd = $connection->prepare($sql);
         $cmd->bindParam(':username', $username, PDO::PARAM_STR, 80);
         $cmd->bindParam(':password', $password, PDO::PARAM_STR, 255);
+
+        //the adminId is only used if the admin is being edited
         if(!empty($adminId)) {
             $cmd->bindParam(':adminId', $adminId, PDO::PARAM_INT);
         }
 
+        //executing the query and closing the database connection
         $cmd->execute();
         $connection = null;
+
 
         if(!empty($adminId)) {
             header('location:admins.php');

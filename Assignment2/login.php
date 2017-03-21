@@ -1,6 +1,7 @@
 <?php
-    ob_start();
+    //Setting the pageTitle variable for the heading
     $pageTitle = 'Admin Login';
+    //requiring the header
     require_once('header.php');
 ?>
 
@@ -8,13 +9,14 @@
         <h1>Log In</h1>
         <?php
         $error = $_GET['error'];
-
+        //changing the alert message according to the error variable
         if($error) {
             echo '<div class="alert alert-danger" id="message">Authentication failed. Please try again.</div>';
         } else {
             echo '<div class="alert alert-success" id="message">Please, use your admin credentials to log in.</div>';
         }
         ?>
+        <!-- Simple log in form -->
         <form method="post" action="process-login.php">
             <fieldset class="form-group">
                 <label for="username" class="col-sm-2">Username:</label>
@@ -31,6 +33,6 @@
     </main>
 
 <?php
+    //requiring the footer
     require_once('footer.php');
-    ob_flush();
 ?>

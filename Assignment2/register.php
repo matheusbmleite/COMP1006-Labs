@@ -1,14 +1,17 @@
 <?php
-$pageTitle = 'Admin registration';
-require_once('header.php');
+    //Setting the pageTitle variable for the heading
+    $pageTitle = 'Admin registration';
+    //requiring the header
+    require_once('header.php');
 ?>
     <main class="container">
         <h1>Admin Registration</h1>
         <?php
+            //Changing the error message acording to the error variable
             if(!empty($_GET['error'])) {
                 $errorMessage = $_GET['error'];
                 echo '<div class="alert alert-danger" id="message">'.$errorMessage.'</div>';
-            } else if(!empty($_GET['adminId'])) {
+            } else if(!empty($_GET['adminId'])) { //Checking if the user wants to edit an admin
                 echo '<div class="alert alert-info" id="message">Enter a valid username and password to change your credentials</div>';
 
                 $adminId = $_GET['adminId'];
@@ -38,6 +41,7 @@ require_once('header.php');
                 <input type="password" name="confirm" id="confirm" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
             </fieldset>
             <div class="col-sm-offset-2">
+                <!-- If the user is editing the admin this hidden field will have the adminId -->
                 <input name="adminId" id="adminId" value="<?php echo $adminId; ?>" type="hidden"/>
                 <button class="btn btn-info btnRegister">Register</button>
             </div>
@@ -45,5 +49,6 @@ require_once('header.php');
     </main>
 
 <?php
-require_once('footer.php');
+    //Requiring the footer
+    require_once('footer.php');
 ?>

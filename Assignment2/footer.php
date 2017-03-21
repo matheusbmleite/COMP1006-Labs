@@ -1,4 +1,5 @@
 <footer class="navbar-fixed-bottom nav alert-info">
+    <!-- Horizontal line to separate the footer content from the main content -->
     <hr />
     &copy; 2017 | Matheus Leite
 </footer>
