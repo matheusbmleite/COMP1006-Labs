@@ -27,7 +27,7 @@
                 <input type="password" name="password" required />
             </fieldset>
             <fieldset class="col-sm-offset-2">
-                <button class="btn btn-success">Login</button>
+                <button class="btn btn-danger">Login</button>
             </fieldset>
         </form>
     </main>

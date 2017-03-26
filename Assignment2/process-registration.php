@@ -25,6 +25,8 @@
 
     //requiring the connection to the database
     require_once('db.php');
+try {
+
 
     //Creating the sql query
     $sql = 'SELECT * FROM admins WHERE username = :username;';
@@ -35,15 +37,15 @@
     $cmd->execute();
 
     //Checking if the username is already being used
-    if(!empty($cmd->fetchAll()) && empty($adminId)) {
-        $error = $error.'The username is already being used <br />';
+    if (!empty($cmd->fetchAll()) && empty($adminId)) {
+        $error = $error . 'The username is already being used <br />';
         $ok = false;
     }
 
     //If the user submitted the data without error
-    if($ok) {
+    if ($ok) {
         //Checking whether to update or create a new admin
-        if(!empty($adminId)) {
+        if (!empty($adminId)) {
             $sql = 'UPDATE admins SET username = :username, password = :password WHERE adminId = :adminId;';
         } else {
             $sql = 'INSERT INTO admins(username, password) VALUES (:username, :password);';
@@ -59,7 +61,7 @@
         $cmd->bindParam(':password', $password, PDO::PARAM_STR, 255);
 
         //the adminId is only used if the admin is being edited
-        if(!empty($adminId)) {
+        if (!empty($adminId)) {
             $cmd->bindParam(':adminId', $adminId, PDO::PARAM_INT);
         }
 
@@ -68,15 +70,18 @@
         $connection = null;
 
 
-        if(!empty($adminId)) {
+        if (!empty($adminId)) {
             header('location:admins.php');
         } else {
             header('location:login.php');
         }
 
-
     } else {
-        header('location:register.php?error='.$error);
+        header('location:register.php?error=' . $error);
     }
+} catch(exception $e) {
+    mail('matheusbmleite@gmail.com', 'process-registration error', $e);
+    header('location:error.php');
+}
 
 ?>

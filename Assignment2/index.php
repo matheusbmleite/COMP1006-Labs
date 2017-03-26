@@ -1,19 +1,39 @@
 <?php
-    //Setting the pageTitle variable for the heading
-    $pageTitle = 'Website builder | COMP1006';
-    //requiring the heading
-    require_once('header.php');
+//Setting the pageTitle variable for the heading
+$pageTitle = '';
+//requiring the heading
+require_once('header.php');
 ?>
 
 <main class="container">
 
-    <section class="jumbotron">
-        <h1>This is a website builder</h1>
-        <p>Please use one of the links above to get started.</p>
-    </section>
+    <?php
+    $page_id = $_GET['id'];
+    try {
+        //getting the page from the database
+        $sql = "SELECT * FROM pages WHERE pageId = :id;";
+        $cmd = $connection->prepare($sql);
+        $cmd->bindParam(':id', $page_id, PDO::PARAM_INT);
+        $cmd->execute();
+        $page = $cmd->fetch();
+
+        //a little js to change the title of the current page
+        echo '<script>document.title = "'.$page['title'].'";</script>';
+
+        //populating the page with its content
+        echo '<h1>' . $page['title'] . '</h1><p>' . $page['content'] . '</p>';
+
+    } catch (exception $e) {
+        mail('matheusbmleite@gmail.com', 'retrieving page from database error', $e);
+        header('location:error.php');
+    }
+
+    ?>
+
+
 </main>
 
 <?php
-    //requiring the footer
-    require_once('footer.php');
+//requiring the footer
+require_once('footer.php');
 ?>

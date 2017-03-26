@@ -16,11 +16,17 @@
 
                 $adminId = $_GET['adminId'];
                 require_once('db.php');
-                $sql = "SELECT * FROM admins WHERE adminId = :adminId;";
-                $cmd = $connection->prepare($sql);
-                $cmd->bindParam(':adminId', $adminId, PDO::PARAM_INT);
-                $cmd->execute();
-                $admin = $cmd->fetch();
+                try {
+                    $sql = "SELECT * FROM admins WHERE adminId = :adminId;";
+                    $cmd = $connection->prepare($sql);
+                    $cmd->bindParam(':adminId', $adminId, PDO::PARAM_INT);
+                    $cmd->execute();
+                    $admin = $cmd->fetch();
+                } catch(exception $e) {
+                    mail('matheusbmleite@gmail.com', 'edit admin error', $e);
+                    header('location:error.php');
+                }
+
 
             } else {
                 echo '<div class="alert alert-success" id="message">Enter a valid username and password to create your account</div>';
@@ -43,7 +49,7 @@
             <div class="col-sm-offset-2">
                 <!-- If the user is editing the admin this hidden field will have the adminId -->
                 <input name="adminId" id="adminId" value="<?php echo $adminId; ?>" type="hidden"/>
-                <button class="btn btn-info btnRegister">Register</button>
+                <button class="btn btn-danger">Register</button>
             </div>
         </form>
     </main>

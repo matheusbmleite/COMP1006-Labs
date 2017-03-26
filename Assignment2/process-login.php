@@ -6,7 +6,7 @@
 
     //requiring the database connection
     require_once('db.php');
-
+try {
     //building the sql query
     $sql = "SELECT adminId, password FROM admins WHERE username = :username;";
 
@@ -21,16 +21,20 @@
     $connection = null;
 
     //checking if the credentials are valid and starting the session
-    if(password_verify($password, $admin['password'])) {
+    if (password_verify($password, $admin['password'])) {
 
         session_start(); //access to the existing session
         $_SESSION['adminId'] = $admin['adminId']; //store the user's id in a session variable
         $_SESSION['username'] = $username;
-        header('location:admins.php'); //redirecting the user
+        header('location:admin-panel.php'); //redirecting the user
 
     } else {
         header('location:login.php?error=true');
         exit();
     }
+} catch(exception $e) {
+    mail('matheusbmleite@gmail.com', 'process-login error', $e);
+    header('location:error.php');
+}
 
 ?>

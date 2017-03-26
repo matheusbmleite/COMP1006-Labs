@@ -25,7 +25,7 @@ $(document).ready(function() {
         var strength = 0
         if (password.length < 6) {
             $('#result').removeClass()
-            $('#result').addClass('alert-danger')
+            $('#result').addClass('alert alert-danger')
             return 'Too short'
         }
         if (password.length > 7) strength += 1
@@ -41,15 +41,15 @@ $(document).ready(function() {
 // If value is less than 2
         if (strength < 2) {
             $('#result').removeClass()
-            $('#result').addClass('alert-warning')
+            $('#result').addClass('alert alert-warning')
             return 'Weak'
         } else if (strength == 2) {
             $('#result').removeClass()
-            $('#result').addClass('alert-info')
+            $('#result').addClass('alert alert-info')
             return 'Good'
         } else {
             $('#result').removeClass()
-            $('#result').addClass('alert-success')
+            $('#result').addClass('alert alert-success')
             return 'Strong'
         }
     }

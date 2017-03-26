@@ -1,0 +1,37 @@
+/*setting a logo size*/
+.logo {
+    height: 50px;
+    width: 125px;
+}
+
+/*Changing the color of the user dropdown menu elements to match the
+website pattern*/
+.navbar-text > a, .navbar-text {
+    color: #FFF !important;
+}
+
+.caret {
+    border-top-color: #FFF !important;
+}
+
+
+.dropdown-menu a{
+    color: rgba(255, 76, 64, 0.98) !important;
+}
+
+
+/*Changing the nav-bar border style*/
+.navbar {
+    border-radius: 0px;
+}
+
+/*removing the navbar-brand margins*/
+.navbar-brand {
+    margin-top : 0px !important;
+    margin-bottom : 0px !important;
+}
+
+/*removing the bottom padding from the nav-bar-fixed-bottom (footer)*/
+.navbar-fixed-bottom {
+    margin-bottom: 0px !important;
+}
