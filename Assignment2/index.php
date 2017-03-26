@@ -8,6 +8,13 @@ require_once('header.php');
 <main class="container">
 
     <?php
+    //accessing the current session
+    session_start();
+    //if the user is logged in, redirect to the admin-panel page
+    if(!empty($_SESSION['adminId'])) {
+        header('location:admin-panel.php');
+        exit();
+    }
     $page_id = $_GET['id'];
     try {
         //getting the page from the database
@@ -16,6 +23,8 @@ require_once('header.php');
         $cmd->bindParam(':id', $page_id, PDO::PARAM_INT);
         $cmd->execute();
         $page = $cmd->fetch();
+
+        $connection = null;
 
         //a little js to change the title of the current page
         echo '<script>document.title = "'.$page['title'].'";</script>';
