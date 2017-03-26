@@ -52,7 +52,7 @@ try {
             <fieldset class="form-group">
                 <label for="content" class="col-sm-1">Content: </label>
                 <textarea name="content" id="content" placeholder="insert the content of your page here" cols="100"
-                          rows="10" required><?php echo $content; ?></textarea>
+                          rows="10"><?php echo $content; ?></textarea>
             <input name="pageId" id="pageId" value="<?php echo $pageId; ?>" type="hidden"/>
             <button class="btn btn-danger col-sm-offset-0">Save Page</button>
         </form>

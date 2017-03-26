@@ -1,3 +1,4 @@
+</body>
 <footer class="navbar-fixed-bottom alert alert-danger">
         &copy; 2017 | Matheus Leite, created using <a class="btn btn-xs btn-link btn-fill"href="https://www.creative-tim.com/product/get-shit-done-kit">get shit done bootstrap kit</a>
 </footer>
@@ -14,8 +15,11 @@
 
 <script src="assets/js/custom.js"></script>
 
+<!--NicEdit editor-->
+<script src="js/nicEdit.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
 <!-- custom js -->
 <script src="js/app.js"></script>
-</body>
 </html>
 <?php ob_flush()?>

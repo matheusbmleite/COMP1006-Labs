@@ -34,4 +34,9 @@ website pattern*/
 /*removing the bottom padding from the nav-bar-fixed-bottom (footer)*/
 .navbar-fixed-bottom {
     margin-bottom: 0px !important;
+    margin-top: 10px !important;
+}
+
+main {
+    margin-bottom: 50px !important;
 }
