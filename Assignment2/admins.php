@@ -35,8 +35,10 @@ try {
     // closing table
     echo '</table>';
 
-    //disconnect
+    //disconnecting
     $connection = null;
+
+    //In case of an exception, redirects to the error page and email me
 } catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'admins page error', $e);
     header('location:error.php');

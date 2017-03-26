@@ -7,7 +7,7 @@
     <main class="container">
         <h1>Admin Registration</h1>
         <?php
-            //Changing the error message acording to the error variable
+            //Changing the error message according to the error variable
             if(!empty($_GET['error'])) {
                 $errorMessage = $_GET['error'];
                 echo '<div class="alert alert-danger" id="message">'.$errorMessage.'</div>';
@@ -15,19 +15,20 @@
                 echo '<div class="alert alert-info" id="message">Enter a valid username and password to change your credentials</div>';
 
                 $adminId = $_GET['adminId'];
+
                 require_once('db.php');
                 try {
+                    //setting up the sql query, binding parameters, exeuting the query and getting the results
                     $sql = "SELECT * FROM admins WHERE adminId = :adminId;";
                     $cmd = $connection->prepare($sql);
                     $cmd->bindParam(':adminId', $adminId, PDO::PARAM_INT);
                     $cmd->execute();
                     $admin = $cmd->fetch();
+                //In case of an exception, redirect to the error page and email me
                 } catch(exception $e) {
                     mail('matheusbmleite@gmail.com', 'edit admin error', $e);
                     header('location:error.php');
                 }
-
-
             } else {
                 echo '<div class="alert alert-success" id="message">Enter a valid username and password to create your account</div>';
             }

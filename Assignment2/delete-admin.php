@@ -15,6 +15,8 @@ try{
 
     //redirecting the page
     header('location:admins.php');
+
+//In case of an exception, redirects to the error page and email me
 } catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'delete admin error', $e);
     header('location:error.php');

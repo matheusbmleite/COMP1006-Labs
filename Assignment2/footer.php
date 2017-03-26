@@ -3,7 +3,7 @@
         &copy; 2017 | Matheus Leite, created using <a class="btn btn-xs btn-link btn-fill"href="https://www.creative-tim.com/product/get-shit-done-kit">get shit done bootstrap kit</a>
 </footer>
 
-<!--linking the bootstrap tool-kit scripts-->
+<!--linking the get-shit-done tool-kit scripts-->
 <script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 

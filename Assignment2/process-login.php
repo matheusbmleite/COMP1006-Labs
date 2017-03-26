@@ -24,14 +24,15 @@ try {
     if (password_verify($password, $admin['password'])) {
 
         session_start(); //access to the existing session
-        $_SESSION['adminId'] = $admin['adminId']; //store the user's id in a session variable
+        $_SESSION['adminId'] = $admin['adminId']; //store the admin's id in a session variable
         $_SESSION['username'] = $username;
-        header('location:admin-panel.php'); //redirecting the user
+        header('location:admin-panel.php'); //redirecting to the admin-panel
 
     } else {
         header('location:login.php?error=true');
         exit();
     }
+//In case of an exception, redirect to the error page and email me
 } catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'process-login error', $e);
     header('location:error.php');

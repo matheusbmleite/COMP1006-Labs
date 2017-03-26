@@ -1,5 +1,6 @@
 <?php
 ob_start();
+//requiring that the user is authenticated
 require_once('auth.php');
 
     try{
@@ -54,6 +55,7 @@ require_once('auth.php');
             header('location:add-page.php?error='.$error);
          }
     }
+   //In case of an exception, redirect to the error page and email me
     catch(exception $e) {
         mail('matheusbmleite@gmail.com', 'process-add page error', $e);
         header('location:error.php');

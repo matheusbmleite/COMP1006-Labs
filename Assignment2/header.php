@@ -21,13 +21,13 @@
         <?php
         //using glob to get the logo name from the server and setting the logo dynamically
         $logo = glob("logo/*");
-//        echo '<li><img src="'.$logo['0'].'" alt="Logo" class ="logo"/></li>';
         echo '<li><img alt="logo" src="'.$logo['0'].'" class="navbar-brand"></li>';
+
         // check if user is logged in
         session_start();
 
         if (empty($_SESSION['adminId'])) {
-            // public links
+            //requiring the database connection
             require_once('db.php');
 
             try {
@@ -39,6 +39,7 @@
                 foreach ($pages as $page) {
                     echo '<li><a href="index.php?id='.$page['pageId'].'">'.$page['title'].'</a></li>';
                 }
+            //In case of an exception, redirect to the error page and email me
             }catch(exception $e) {
                 mail('matheusbmleite@gmail.com', 'header public pages error', $e);
                 header('location:error.php');

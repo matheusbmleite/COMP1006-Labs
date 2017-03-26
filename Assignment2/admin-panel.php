@@ -3,6 +3,8 @@
 $pageTitle = 'Administrator Panel';
 //requiring the heading
 require_once('header.php');
+//requiring that the user is authenticated
+require_once('auth.php');
 ?>
 
 <main class="container">

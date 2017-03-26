@@ -8,14 +8,16 @@ $title = null;
 $content = null;
 
 
-//checking the url for an albumId, in case the user clicked the edit button
+//checking the url for a pageId, in case the user clicked the edit button
 try {
     if(!empty($_GET['pageId'])) {
         if(is_numeric($_GET['pageId'])) {
             $pageId = $_GET['pageId'];
-
+            //requiring the database connection
             require_once('db.php');
 
+            //building the query to retrieve the page elements from the db,
+            // binding the parameters, executing the query and getting the page contents
             $sql = "SELECT title, content FROM pages WHERE pageId=:pageId;";
             $cmd = $connection->prepare($sql);
             $cmd->bindParam(':pageId', $pageId, PDO::PARAM_INT);
@@ -25,10 +27,12 @@ try {
             $title = $page['title'];
             $content = $page['content'];
 
+            //disconnecting
             $connection = null;
 
         }
     }
+  //In case of an exception, redirects to the error page and email me
 } catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'add-page error', $e);
     header('location:error.php');

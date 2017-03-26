@@ -7,6 +7,8 @@ try {
         ''.$db_array["username"], $db_array["password"]);
 
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//In case of an exception, redirects to the error page and email me
 }catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'connecting to the database script error', $e);
     header('location:error.php');

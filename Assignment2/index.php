@@ -23,14 +23,13 @@ require_once('header.php');
         //populating the page with its content
         echo '<h1>' . $page['title'] . '</h1><p>' . $page['content'] . '</p>';
 
+        //In case of an exception, redirect to the error page and email me
     } catch (exception $e) {
         mail('matheusbmleite@gmail.com', 'retrieving page from database error', $e);
         header('location:error.php');
     }
 
     ?>
-
-
 </main>
 
 <?php

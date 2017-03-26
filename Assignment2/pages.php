@@ -13,7 +13,7 @@ require_once('auth.php');
 require_once('db.php');
 
 try {
-    //sql query to select the administrators
+    //sql query to select the pages
     $sql = "SELECT pageId, title FROM pages ORDER BY title;";
     //execute the query and store results
     $cmd = $connection->prepare($sql);
@@ -37,6 +37,8 @@ try {
 
     //disconnect
     $connection = null;
+
+//In case of an exception, redirect to the error page and email me
 } catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'retrieve pages error', $e);
     header('location:error.php');

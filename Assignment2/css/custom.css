@@ -37,6 +37,12 @@ website pattern*/
     margin-top: 10px !important;
 }
 
+/*creating a margin for the main element, so it doesn't overlap the footer*/
 main {
     margin-bottom: 50px !important;
+}
+
+/*Creating a custom style for the error headers*/
+.error-header {
+    color: rgba(255, 76, 64, 0.98) !important;
 }

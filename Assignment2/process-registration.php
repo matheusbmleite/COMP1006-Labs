@@ -79,6 +79,8 @@ try {
     } else {
         header('location:register.php?error=' . $error);
     }
+
+//In case of an exception, redirect to the error page and email me
 } catch(exception $e) {
     mail('matheusbmleite@gmail.com', 'process-registration error', $e);
     header('location:error.php');
