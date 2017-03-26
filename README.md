@@ -28,4 +28,5 @@ for the Introduction to Web Programming class (COMP1006).
 - Assignment 2
     * A content management site
         * A content management site is a website builder that allows the users to create and manage their own website.
-    * url to the deployed project: [Assignment 2](http://gc200350070.computerstudi.es/webProgramming/ass2/index.php).
+    * url to the first part of the deployed project (user authentication and registration): [Assignment 2 part 1](http://gc200350070.computerstudi.es/webProgramming/ass2/index.php).
+    * url to the final deployed project: [Assignment 2 final](http://gc200350070.computerstudi.es/webProgramming/ass2-pt2/index.php).
