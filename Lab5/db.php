@@ -1,0 +1,15 @@
+<?php
+//read the db.ini file to get the credentials
+$db_array = parse_ini_file("db.ini");
+try {
+    //build the connection with the credentials from the db.ini file
+    $conn = new PDO('mysql:host='.$db_array["host"].';dbname='.$db_array["dbname"],
+        ''.$db_array["username"], $db_array["password"]);
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//In case of an exception, redirects to the error page and email me
+}catch(exception $e) {
+    mail('matheusbmleite@gmail.com', 'connecting to the database script error', $e);
+    header('location:error.php');
+}
