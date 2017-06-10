@@ -31,4 +31,4 @@ for the Introduction to Web Programming class (COMP1006).
         * This website uses the [get shit done](https://www.creative-tim.com/product/get-shit-done-kit) bootstrap kit created by [Creative Tim](https://www.creative-tim.com/).
         * The content editor used to edit the content of the public website pages was developed by [NicEdit](http://nicedit.com/index.php) and it is licensed under the [MIT license](http://nicedit.com/license.php). 
     * url to the first part of the deployed project (user authentication and registration): [Assignment 2 part 1](http://gc200350070.computerstudi.es/webProgramming/ass2/index.php).
-    * url to the final deployed project: [Assignment 2 final](http://gc200350070.computerstudi.es/webProgramming/ass2-pt2/index.php).
+    * url to the final deployed project: [Assignment 2 final](http://gc200350070.computerstudi.es/webProgramming/ass2-pt2/index.php?id=8).
