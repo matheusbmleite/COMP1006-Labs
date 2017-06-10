@@ -16,7 +16,7 @@ for the Introduction to Web Programming class (COMP1006).
 	    * Try catch blocks must be added where needed. 
 	    * An error mail must be sent any time an exception is caught.
 	    * A 404 page must be shown any time a non-existent url is called.
-	* url to the doployed project: [Lab 3](http://gc200350070.computerstudi.es/webProgramming/lab3/add-customer.php).
+	* url to the deployed project: [Lab 3](http://gc200350070.computerstudi.es/webProgramming/lab3/add-customer.php).
 
 # Assignments
 - Assignment 1
